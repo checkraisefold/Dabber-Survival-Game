@@ -27,9 +27,11 @@
 		New()
 			..()
 			spawn(1)
-				AutoJoinInRange()
+				for(var/obj/electricity/pipe/G in range(1,src))
+					G.AutoJoinInRange()
 		proc
 			AutoJoinInRange()
+				overlays = null
 				for(var/d in list(NORTH,SOUTH,EAST,WEST))
 					var/obj/electricity/pipe/G = locate(/obj/electricity/pipe) in get_step(src,d)
 					if(istype(G,/obj/electricity/pipe))
