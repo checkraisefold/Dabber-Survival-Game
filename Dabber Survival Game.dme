@@ -1,0 +1,44 @@
+// DM Environment file for buildingStuff.dme.
+// All manual changes should be made outside the BEGIN_ and END_ blocks.
+// New source code should be placed in .dm files: choose File/New --> Code File.
+
+// BEGIN_INTERNALS
+// END_INTERNALS
+
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+#define FILE_DIR "icons"
+#define FILE_DIR "icons/floors"
+#define FILE_DIR "icons/hud"
+#define FILE_DIR "icons/mobs"
+#define FILE_DIR "icons/obj"
+#define FILE_DIR "sound"
+// END_FILE_DIR
+
+// BEGIN_PREFERENCES
+#define DEBUG
+// END_PREFERENCES
+
+// BEGIN_INCLUDE
+#include "_game.dm"
+#include "skin.dmf"
+#include "GameMap.dmm"
+#include "code\mobs\AStarPathfinding.dm"
+#include "code\mobs\mob.dm"
+#include "code\mobs\client\building.dm"
+#include "code\mobs\client\client.dm"
+#include "code\mobs\client\mouse.dm"
+#include "code\mobs\client\music.dm"
+#include "code\obj\door.dm"
+#include "code\obj\items.dm"
+#include "code\obj\lamp.dm"
+#include "code\obj\lighting.dm"
+#include "code\obj\overlays.dm"
+#include "code\obj\trees.dm"
+#include "code\subsystem\controller.dm"
+#include "code\subsystem\events.dm"
+#include "code\subsystem\gamefunctionscheduler.dm"
+#include "code\subsystem\mapgen.dm"
+#include "code\turfs\turf.dm"
+// END_INCLUDE
+

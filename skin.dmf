@@ -1,0 +1,268 @@
+macro "macro"
+	elem 
+		name = "Space"
+	elem 
+		name = "Space+UP"
+	elem 
+		name = "West"
+	elem 
+		name = "West+UP"
+	elem 
+		name = "North"
+	elem 
+		name = "North+UP"
+	elem 
+		name = "East"
+	elem 
+		name = "East+UP"
+	elem 
+		name = "South"
+	elem 
+		name = "South+UP"
+	elem 
+		name = "1"
+	elem 
+		name = "2"
+	elem 
+		name = "3"
+	elem 
+		name = "4"
+	elem 
+		name = "A"
+	elem 
+		name = "A+UP"
+	elem 
+		name = "D"
+	elem 
+		name = "D+UP"
+	elem 
+		name = "E"
+	elem 
+		name = "M"
+	elem 
+		name = "O"
+	elem 
+		name = "Q"
+	elem 
+		name = "R"
+	elem 
+		name = "S"
+	elem 
+		name = "S+UP"
+	elem 
+		name = "T"
+	elem 
+		name = "W"
+	elem 
+		name = "W+UP"
+	elem 
+		name = "X"
+	elem 
+		name = "Z"
+	elem 
+		name = "F1"
+	elem 
+		name = "SHIFT"
+	elem 
+		name = "SHIFT+UP"
+
+
+menu "menu"
+	elem 
+		name = "&File"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "&Quick screenshot\tF2"
+		command = ".screenshot auto"
+		category = "&File"
+		saved-params = "is-checked"
+	elem 
+		name = "&Quit"
+		command = ".quit"
+		category = "&File"
+		saved-params = "is-checked"
+	elem 
+		name = "Icon Size"
+		command = ""
+		saved-params = "is-checked"
+	elem "icon64"
+		name = "64x64 (orig resolution)"
+		command = ".winset \"mapwindow.map.icon-size=64\""
+		category = "Icon Size"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem "icon64"
+		name = "32x32"
+		command = ".winset \"mapwindow.map.icon-size=32\""
+		category = "Icon Size"
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+	elem "stretch"
+		name = "Stretch"
+		command = ".winset \"mapwindow.map.icon-size=0\""
+		category = "Icon Size"
+		is-checked = true
+		can-check = true
+		group = "size"
+		saved-params = "is-checked"
+
+
+window "mainwindow"
+	elem "mainwindow"
+		type = MAIN
+		pos = 281,0
+		size = 1280x720
+		anchor1 = none
+		anchor2 = none
+		background-color = #000000
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
+		macro = "macro"
+		menu = "menu"
+	elem "mainvsplit"
+		type = CHILD
+		pos = 0,0
+		size = 1280x700
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #171a2b
+		saved-params = "splitter"
+		left = "mapwindow"
+		right = "rpane"
+		is-vert = true
+		splitter = 70
+	elem "input"
+		type = INPUT
+		pos = 0,700
+		size = 1280x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #0e101b
+		is-default = true
+		border = line
+		saved-params = "command"
+
+window "mapwindow"
+	elem "mapwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = #000000
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		right-click = true
+		saved-params = "zoom;letterbox;zoom-mode"
+		icon-size = 64
+		zoom = 1
+
+window "outputwindow"
+	elem "outputwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = #23263f
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "output"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "System"
+		text-color = #ffffff
+		background-color = #171a2b
+		is-default = true
+		saved-params = "max-lines"
+		style = ".system {color:#ff0000;}"
+
+window "rpane"
+	elem "rpane"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = #171a2b
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "child1"
+		type = CHILD
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #171a2b
+		is-default = true
+		saved-params = "splitter"
+		left = "infowindow"
+		right = "outputwindow"
+		is-vert = false
+
+window "infowindow"
+	elem "infowindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = #171a2b
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Info"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "info"
+		type = INFO
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #252841
+		is-default = true
+		drop-zone = false
+		saved-params = ""
+		highlight-color = #ff0080
+		tab-text-color = #ffffff
+		tab-background-color = #171a2b
+		allow-html = false
+		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
+		on-hide = ".winset\"rpane.infob.is-visible=false;rpane.browseb.is-visible=true?rpane.browseb.is-checked=true rpane.rpanewindow.left=browserwindow:rpane.textb.is-visible=false rpane.rpanewindow.pos=0,0 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=\""
+		prefix-color = #ff8000
+		suffix-color = #ffff00
+
