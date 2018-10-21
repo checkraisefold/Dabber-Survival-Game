@@ -4,6 +4,12 @@
 	icon = 'icons/obj/electricity.dmi'
 	var/power_stored = 0 //Amount of power stored
 	var/power_max = 20 //Maximum
+	New()
+		..()
+		electricity += src
+	Del()
+		electricity -= src
+		..()
 	proc
 		spend_power(amount)
 			if(power_stored >= amount)
