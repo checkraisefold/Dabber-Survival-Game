@@ -27,7 +27,12 @@ turf
 		AdjacentTurfs()
 			var/L[] = new()
 			for(var/turf/t in oview(src,1))
-				if(!t.density)
+				var/VALID = !t.density
+				for(var/atom/movable/G in t)
+					if(G.density)
+						VALID = 0
+						break
+				if(VALID || t == DESTINATION)
 					L.Add(t)
 			return L
 		Distance(turf/t)
