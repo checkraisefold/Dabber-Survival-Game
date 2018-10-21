@@ -26,7 +26,7 @@ turf
 	proc
 		AdjacentTurfs()
 			var/L[] = new()
-			for(var/turf/t in oview(src,1))
+			for(var/turf/t in orange(src,1))
 				var/VALID = !t.density
 				for(var/atom/movable/G in t)
 					if(G.density)
