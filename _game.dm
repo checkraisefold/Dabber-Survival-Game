@@ -1,6 +1,6 @@
 #define TICK_LAG (1/60)*10
 #define HUD_PLANE 100
-#define LIGHTING_PLANE 50
+#define LIGHTING_PLANE 40
 #define WATER_PLANE -100
 #define DEBUG
 #define CHECK_TICK if(world.tick_usage > 80) sleep(world.tick_lag)
