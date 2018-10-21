@@ -16,7 +16,8 @@
 	"granite" = 0,
 	"meat" = 0,
 	"club" = 0,
-	"knife" = 0
+	"knife" = 0,
+	"gun" = 0
 	)
 	proc/Update_Storage()
 		for(var/i in owned_items)

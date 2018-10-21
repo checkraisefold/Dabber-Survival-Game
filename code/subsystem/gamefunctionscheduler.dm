@@ -32,7 +32,7 @@ var/datum/controller/GameScheduler/Scheduler = null
 	Get_Extra_Information()
 		var/finaltext = ""
 		for(var/a in scheduled_events)
-			finaltext = "[finaltext]EVENT [a] - [jointext(scheduled_events[a],", ")],"
+			finaltext = "[finaltext]EVENT [a] - [jointext(scheduled_events[a],", ")] , "
 		return finaltext
 	Process()
 		Scheduler = src

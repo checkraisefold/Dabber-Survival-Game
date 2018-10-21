@@ -414,17 +414,22 @@ client
 				else
 					first_point = null
 			else
-				if(istype(object,/mob) && object != mob)
+				if(object != mob)
 					if(mode == ATTACK)
 						if(mob.slot_0)
 							if(mob.slot_0.weapon_type == RANGED)
 								//for ranged weapons, do not call the melee shit.
-
+								world << "Firing"
+								var/obj/projectile/to_shoot = new(mob.loc)
+								to_shoot.owner = src
+								to_shoot.dmg = mob.slot_0.attack_damage
+								to_shoot.ang = atan2(mob,location)
 								return
-						if(get_dist(mob,object) <= 1)
-							if(world.time > last_attack + 2)
-								object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
-								last_attack = world.time
+						if(istype(object,/mob))
+							if(get_dist(mob,object) <= 1)
+								if(world.time > last_attack + 2)
+									object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
+									last_attack = world.time
 	DblClick(atom/object,location,control,params)
 		if(!current_selected_type)
 			if(istype(object,/atom/movable) && object.z != 0)

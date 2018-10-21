@@ -26,12 +26,13 @@
 	col = "#8080FF"
 	On_Trigger()
 		..()
-		for(var/i in 1 to rand(50,70))
+		for(var/i in 1 to rand(1,20))
 			var/list/random_items = list(
 			/obj/item/food/meat,
 			/obj/item/material/granite,
 			/obj/item/weapon/club,
-			/obj/item/weapon/knife
+			/obj/item/weapon/knife,
+			/obj/item/weapon/gun
 			)
 			var/wep = pick(random_items)
 			new wep(find_free_turf())
