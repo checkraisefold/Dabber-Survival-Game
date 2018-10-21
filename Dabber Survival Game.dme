@@ -7,12 +7,6 @@
 
 // BEGIN_FILE_DIR
 #define FILE_DIR .
-#define FILE_DIR "icons"
-#define FILE_DIR "icons/floors"
-#define FILE_DIR "icons/hud"
-#define FILE_DIR "icons/mobs"
-#define FILE_DIR "icons/obj"
-#define FILE_DIR "sound"
 // END_FILE_DIR
 
 // BEGIN_PREFERENCES

@@ -3,6 +3,7 @@ var/list/buildable = list(
 "Wood Wall" = list(/turf/wall/wood,"wood",2,5),
 "Granite Wall" = list(/turf/wall/granite,"granite",2,5),
 "Lamp" = list(/obj/lamp,"granite",5,10),
+"Red Lamp" = list(/obj/lamp/redlamp,"granite",5,10),
 "Door" = list(/obj/door,"wood",5,10),
 "Storage Floor" = list(/turf/floor/storage,"wood",0,1)
 )
