@@ -425,10 +425,13 @@ client
 								to_shoot.ang = get_angle(mob,location)
 								world << 'shot.wav'
 								return
-						if(istype(object,/mob))
+						if(istype(object,/mob) || istype(object,/turf))
 							if(get_dist(mob,object) <= 1)
 								if(world.time > last_attack + 2)
-									object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
+									if(istype(object,/turf))
+										object:TakeDamageTurf(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
+									else
+										object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
 									last_attack = world.time
 	DblClick(atom/object,location,control,params)
 		if(!current_selected_type)

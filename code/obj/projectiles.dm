@@ -17,7 +17,15 @@
 	process()
 		if(!PixelMove(cos(ang)*speed,sin(ang)*speed))
 			del src
-		for(var/mob/human/i in obounds(src))
-			if(i != bullet_owner)
-				i.TakeDamage(dmg)
-				del src
+		for(var/atom/i in obounds(src))
+			if(istype(i,/mob))
+				if(i != bullet_owner)
+					i:TakeDamage(dmg)
+					del src
+			if(istype(i,/turf))
+				if(i.density)
+					i:TakeDamageTurf(dmg)
+					del src
+			if(istype(i,/obj))
+				if(i.density)
+					del src

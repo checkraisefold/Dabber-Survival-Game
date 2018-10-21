@@ -2,6 +2,13 @@ var/list/free_turfs = list()
 turf
 	icon = null
 	mouse_opacity = 2
+	var/health = 1
+	proc/TakeDamageTurf(dmg)
+		if(istype(src,/turf/wall))
+			health -= dmg
+			world << sound("sound/galvin1.ogg")
+			if(health < 0)
+				del src
 	water
 		alpha = 0
 		density = 1
@@ -52,6 +59,7 @@ turf
 			icon = 'walls.dmi'
 			icon_state = "granite"
 			color = "#808080"
+			health = 1000
 			New()
 				..()
 				var/image/dirt = new()
@@ -70,6 +78,7 @@ turf
 			icon = 'walls.dmi'
 			icon_state = "0"
 			color = rgb(82,60,41)
+			health = 500
 			New()
 				..()
 				var/image/dirt = new()
