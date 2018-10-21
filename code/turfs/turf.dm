@@ -59,7 +59,7 @@ turf
 			icon = 'walls.dmi'
 			icon_state = "granite"
 			color = "#808080"
-			health = 1000
+			health = 400
 			New()
 				..()
 				var/image/dirt = new()
@@ -78,7 +78,7 @@ turf
 			icon = 'walls.dmi'
 			icon_state = "0"
 			color = rgb(82,60,41)
-			health = 500
+			health = 250
 			New()
 				..()
 				var/image/dirt = new()

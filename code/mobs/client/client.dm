@@ -474,9 +474,11 @@ client
 										src << "You cannot build here! There's already a project."
 										continue
 									else
-										var/obj/build_project/proj = new(locate(i,e,1))
-										proj.what_to_build = current_selected_type
-										proj.Init()
-										proj.owner = mob
-										var/datum/game_event/start_project/PROJECT = Scheduler.Add_Event(/datum/game_event/start_project,mob)
-										PROJECT.proj = proj
+										var/turf/buildOn = locate(i,e,1)
+										if(buildOn.ownerofthis == null || buildOn.ownerofthis == mob)
+											var/obj/build_project/proj = new(buildOn)
+											proj.what_to_build = current_selected_type
+											proj.Init()
+											proj.owner = mob
+											var/datum/game_event/start_project/PROJECT = Scheduler.Add_Event(/datum/game_event/start_project,mob)
+											PROJECT.proj = proj

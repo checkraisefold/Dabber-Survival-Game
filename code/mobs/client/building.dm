@@ -44,13 +44,16 @@ var/list/materials = list(
 				for(var/obj/i in locate(x,y,z))
 					if(i != src && i.built)
 						del i
-			var/g = new path_to_object(locate(x,y,z))
-			if(path_to_object != /turf/dirt)
-				g:built = 1
-				g:ownerofthis = owner
-				owner:owned_stuff += g
-				if(istype(g,/turf/floor/storage))
-					owner:storages += g
+			if(path_to_object == /turf/dirt)
+				del loc
+			else
+				var/g = new path_to_object(locate(x,y,z))
+				if(path_to_object != /turf/dirt)
+					g:built = 1
+					g:ownerofthis = owner
+					owner:owned_stuff += g
+					if(istype(g,/turf/floor/storage))
+						owner:storages += g
 			del src
 		else
 
