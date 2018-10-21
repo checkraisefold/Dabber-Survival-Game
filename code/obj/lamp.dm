@@ -13,5 +13,5 @@
 			if(l)
 				l.alpha = 0
 	redlamp
-	  icon_state = "lamp_red"
-	  lamp_light_color = "#FF0000"
+		icon_state = "lamp_red"
+		lamp_light_color = "#FF0000"
