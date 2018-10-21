@@ -28,4 +28,5 @@
 					del src
 			if(istype(i,/obj))
 				if(i.density)
+					i:TakeDamageObj(dmg,0)
 					del src

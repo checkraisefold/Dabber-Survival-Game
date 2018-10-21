@@ -1,6 +1,7 @@
 proc/find_free_turf()
 	return pick(free_turfs)
 mob/var/pathfinding = 0
+mob/var/move_speed = 1
 var/turf/DESTINATION
 mob/proc
 	WalkTo(_x, _y)
@@ -15,8 +16,8 @@ mob/proc
 					pixel_w = (old_x-x)*64
 					pixel_z = (old_y-y)*64
 					sleep(world.tick_lag)
-					animate(src, pixel_w = 0, pixel_z = 0, time = 1-world.tick_lag)
-					sleep (1-world.tick_lag)
+					animate(src, pixel_w = 0, pixel_z = 0, time = move_speed-world.tick_lag)
+					sleep(move_speed-world.tick_lag)
 			pathfinding = 0
 			return 1
 

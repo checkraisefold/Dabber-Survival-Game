@@ -112,6 +112,8 @@ client
 		obj/screen_object/lighting_master/lighting_master = null
 		obj/screen_object/lighting_cover/cover = null
 
+		obj/screen_object/text_object/temperature = null
+
 		list/alerts_hud = list()
 
 		list/hud_bar_health = list()
@@ -150,6 +152,10 @@ client
 		object_desc = CreateScreenText("1,2:16",64*5)
 		hud_bar_num = CreateScreenText("1:1,3:[-41+20]",64*4)
 		hud_bar_num_h = CreateScreenText("1:[1+110],3:[-41+20]",64*4)
+
+		temperature = CreateScreenText("EAST-2,1",64*3)
+		temperature.maptext_x = -6
+
 		CreateHudBar(hud_bar_health,100,"#232323",10,192-76)
 		CreateHudBar(hud_bar_hunger,100,"#824700",10+110,192-76)
 		for(var/i in typesof(/obj/screen_object/hud_mob)-/obj/screen_object/hud_mob)
@@ -241,11 +247,11 @@ client
 				reorganize_alerts()
 		reorganize_alerts()
 			spawn()
-				var/offs = -1
+				var/offs = 0
 				for(var/obj/screen_object/g in alerts_hud)
 					offs += 1
 					var/matrix/M = matrix()
-					M.Translate(0,12+(offs*42))
+					M.Translate(0,0+(offs*42))
 					animate(g,transform = M,time = 10,easing = QUAD_EASING | EASE_IN)
 		set_macros()
 			// this should get us the list of all macro sets that
@@ -312,11 +318,14 @@ client
 			screen += water_huds
 			screen += lighting_master
 			screen += cover
+			screen += temperature
 		ProcessClient()
 			screen = list()
 			InitHud()
 			if(mouse_position)
 				screen += mouse_position.MouseCatcher
+			var/temp = round(20-(sin(frame*MULT_TIME)*5))
+			temperature.maptext = "<text align=right>Temperature : [temp] C*"
 			//255, 207, 158
 			//31, 21, 91
 			//sin(frame)*(255-31)
@@ -425,12 +434,14 @@ client
 								to_shoot.ang = get_angle(mob,location)
 								world << 'shot.wav'
 								return
-						if(istype(object,/mob) || istype(object,/turf))
+						if(object)
 							if(get_dist(mob,object) <= 1)
 								if(world.time > last_attack + 2)
 									if(istype(object,/turf))
 										object:TakeDamageTurf(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
-									else
+									if(istype(object,/obj))
+										object:TakeDamageObj(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
+									if(istype(object,/mob))
 										object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
 									last_attack = world.time
 	DblClick(atom/object,location,control,params)

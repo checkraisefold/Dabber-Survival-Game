@@ -63,18 +63,17 @@ mob
 			dead = 0
 			transform = matrix()
 			pixel_z = 17*64
-			icon = 'icons/mobs/pod.dmi'
+			icon = null
 			pixel_x = -32
 			pixel_y = -32
 			loc = find_free_turf()
 			if(client)
 				client.camera_x = x*64
 				client.camera_y = y*64
-			alpha = 0
 			sleep(rand(1,20))
-			alpha = 255
 			src << 'Start.wav'
 			sleep(20)
+			icon = 'icons/mobs/pod.dmi'
 			animate(src,pixel_z = 0, time = 15, easing = QUAD_EASING|EASE_OUT)
 			sleep(20)
 			density = 1

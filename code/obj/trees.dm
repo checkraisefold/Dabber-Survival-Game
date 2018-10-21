@@ -3,7 +3,7 @@
 	icon = 'trees.dmi'
 	pixel_x = -64
 	layer = MOB_LAYER+1
-	var/health = 15
+	health = 20
 	RightClicked(mob/M)
 		var/datum/game_event/cut_tree/EV = Scheduler.Add_Event(/datum/game_event/cut_tree,M)
 		EV.proj = src
@@ -17,13 +17,13 @@
 				var/turf/location = get_step(proj.loc,pick(NORTH,SOUTH,WEST,EAST))
 				if(location)
 					if(owner:WalkTo(location.x,location.y))
-						while(proj && proj.health > 0)
-							proj.health -= world.tick_lag
+						var/turf/L = proj.loc
+						while(proj)
 							if(frame % 20 == 1)
+								proj.TakeDamageObj(5,1)
 								world << sound("sound/woodBuild[rand(1,4)].wav")
 							sleep(world.tick_lag)
-						new /obj/item/material/wood(proj.loc)
-						del proj
+						new /obj/item/material/wood(L)
 					else
 						return 1
 				else

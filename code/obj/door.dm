@@ -1,7 +1,8 @@
 /obj/door
 	name = "Door"
 	icon = 'icons/floors/door.dmi'
-	density = 0
+	density = 1
+	mouse_opacity = 2
 	var/obj/overlay/slider_1
 	var/obj/overlay/slider_2
 	New()
@@ -19,14 +20,15 @@
 		slider_1.layer = TURF_LAYER
 		vis_contents += slider_1
 		vis_contents += slider_2
-
-	Crossed(atom/movable/Obj,atom/OldLoc)
-		..()
-		world << 'DoorOpen.ogg'
-		animate(slider_1,pixel_x = -33,time = 1)
-		animate(slider_2,pixel_x = 33,time = 1)
-	Uncrossed(atom/movable/O)
-		world << 'DoorClose.ogg'
-		animate(slider_1,pixel_x = 0,time = 1)
-		animate(slider_2,pixel_x = 0,time = 1)
-		..()
+	RightClicked(mob/M)
+		if(ownerofthis == M)
+			if(density)
+				density = 0
+				world << 'DoorOpen.ogg'
+				animate(slider_1,pixel_x = -33,time = 1)
+				animate(slider_2,pixel_x = 33,time = 1)
+			else
+				density = 1
+				world << 'DoorClose.ogg'
+				animate(slider_1,pixel_x = 0,time = 1)
+				animate(slider_2,pixel_x = 0,time = 1)

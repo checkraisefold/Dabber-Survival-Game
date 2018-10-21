@@ -34,6 +34,7 @@
 #include "code\obj\items.dm"
 #include "code\obj\lamp.dm"
 #include "code\obj\lighting.dm"
+#include "code\obj\obj.dm"
 #include "code\obj\overlays.dm"
 #include "code\obj\projectiles.dm"
 #include "code\obj\trees.dm"
