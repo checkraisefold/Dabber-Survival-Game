@@ -1,6 +1,6 @@
-
-*.int
-*.lk
-*.dmb
+*.mdme
 *.dmb
 *.rsc
+*.lk
+*.int
+*.backup
