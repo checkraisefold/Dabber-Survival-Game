@@ -470,12 +470,14 @@ client
 						if(current_selected_type == "Destroy")
 							for(var/i in min(x1, x2) to max(x1, x2))
 								for(var/e in min(y1, y2) to max(y1, y2))
-									var/obj/build_project/proj = new(locate(i,e,1))
-									proj.what_to_build = "Destroy"
-									proj.Init()
-									proj.owner = mob
-									var/datum/game_event/start_project/PROJECT = Scheduler.Add_Event(/datum/game_event/start_project,mob)
-									PROJECT.proj = proj
+									var/turf/buildOn = locate(i,e,1)
+									if(buildOn.ownerofthis == null || buildOn.ownerofthis == mob)
+										var/obj/build_project/proj = new(locate(i,e,1))
+										proj.what_to_build = "Destroy"
+										proj.Init()
+										proj.owner = mob
+										var/datum/game_event/start_project/PROJECT = Scheduler.Add_Event(/datum/game_event/start_project,mob)
+										PROJECT.proj = proj
 							return
 
 						if(current_selected_type in buildable)
