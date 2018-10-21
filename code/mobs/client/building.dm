@@ -2,11 +2,11 @@ var/list/buildable = list(
 "Wood Floor" = list(/turf/floor/wood,"wood",1,3),
 "Wood Wall" = list(/turf/wall/wood,"wood",2,5),
 "Granite Wall" = list(/turf/wall/granite,"granite",2,5),
-"Lamp" = list(/obj/lamp,"granite",5,10),
 "Red Lamp" = list(/obj/lamp/redlamp,"granite",5,10),
+"Storage Floor" = list(/turf/floor/storage,"wood",0,1)
 "Door" = list(/obj/door,"wood",5,10),
 "Electricity Pipe" = list(/obj/electricity/pipe,"granite",2,7),
-"Storage Floor" = list(/turf/floor/storage,"wood",0,1)
+"Lamp" = list(/obj/electricity/power/lamp,"granite",5,10)
 )
 var/list/materials = list(
 "wood",

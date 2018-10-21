@@ -52,3 +52,40 @@ proc/atomdistance(atom/A, atom/B)
 	if(world.port != 0)
 		spawn()
 			call("ByondPOST.dll", "send_post_request")("[webhook_url]", " { \"content\" : \"[content]\" } ", "Content-Type: application/json")
+
+proc
+	dir2txt_3(d)
+		switch(d)
+			if(1)
+				return "NORTH"
+			if(2)
+				return "SOUTH"
+			if(3)
+				return "NORTH+SOUTH"
+			if(4)
+				return "EAST"
+			if(5)
+				return "NORTH+EAST"
+			if(6)
+				return "SOUTH+EAST"
+			if(7)
+				return "NORTH+SOUTH+EAST"
+			if(8)
+				return "WEST"
+			if(9)
+				return "NORTH+WEST"
+			if(10)
+				return "SOUTH+WEST"
+			if(11)
+				return "NORTH+SOUTH+WEST"
+			if(12)
+				return "EAST+WEST"
+			if(13)
+				return "NORTH+EAST+WEST"
+			if(14)
+				return "SOUTH+EAST+WEST"
+			if(15)
+				return "NORTH+SOUTH+EAST+WEST"
+			else
+				return ""
+

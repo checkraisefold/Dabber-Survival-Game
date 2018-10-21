@@ -31,6 +31,7 @@
 #include "code\mobs\client\mouse.dm"
 #include "code\mobs\client\music.dm"
 #include "code\obj\door.dm"
+#include "code\obj\electricity.dm"
 #include "code\obj\items.dm"
 #include "code\obj\lamp.dm"
 #include "code\obj\lighting.dm"

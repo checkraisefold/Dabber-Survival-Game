@@ -1,6 +1,7 @@
 var/list/controllers = list()
 var/list/fast_process = list()
 var/list/AIs = list()
+var/list/electricity = list()
 var/frame = 0
 world
 	New()
@@ -40,6 +41,13 @@ world
 	Process()
 		frame += 1
 		for(var/datum/D in fast_process)
+			D.process()
+
+/datum/controller/Electricity
+	name = "Electricity"
+	Process()
+		for(var/datum/D in electricity)
+			CHECK_TICK
 			D.process()
 
 /datum/controller/ClientProcesser

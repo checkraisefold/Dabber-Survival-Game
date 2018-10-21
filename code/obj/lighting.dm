@@ -11,12 +11,18 @@ obj
 atom/movable
 	var/obj/light/l = null
 	proc/Apply_Light(var/size,var/colorE)
-		if(l in vis_contents)
-			vis_contents -= l
-			del l
-		l = new()
-		var/matrix/M = matrix()
-		M.Scale(size)
-		l.color = colorE
-		l.transform = M
-		vis_contents += l
+		if(l)
+			var/matrix/M = matrix()
+			M.Scale(size)
+			l.color = colorE
+			l.transform = M
+			if(!(l in vis_contents))
+				vis_contents += l
+		else
+			l = new()
+			var/matrix/M = matrix()
+			M.Scale(size)
+			l.color = colorE
+			l.transform = M
+			if(!(l in vis_contents))
+				vis_contents += l
