@@ -14,7 +14,7 @@
 	DoEvent()
 		if(istype(owner,/mob))
 			if(proj)
-				var/turf/location = get_step(proj.loc,pick(NORTH,SOUTH,WEST,EAST))
+				var/turf/location = proj.loc
 				if(location)
 					if(owner:WalkTo(location.x,location.y))
 						var/turf/L = proj.loc

@@ -44,7 +44,7 @@
 	DoEvent()
 		if(istype(owner,/mob))
 			if(proj)
-				var/turf/location = get_step(proj.loc,pick(NORTH,SOUTH,WEST,EAST))
+				var/turf/location = proj.loc
 				if(location)
 					if(owner.vars["slot_[proj.typeW]"] == null)
 						if(owner:WalkTo(location.x,location.y))
