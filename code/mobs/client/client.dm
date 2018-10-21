@@ -437,12 +437,14 @@ client
 					if(mode == ATTACK)
 						if(mob.slot_0)
 							if(mob.slot_0.weapon_type == RANGED)
-								//for ranged weapons, do not call the melee shit.
-								var/obj/projectile/to_shoot = new(mob.loc)
-								to_shoot.bullet_owner = mob
-								to_shoot.dmg = mob.slot_0.attack_damage
-								to_shoot.ang = get_angle(mob,location)
-								world << 'shot.wav'
+								if(world.time > last_attack + 2)
+									//for ranged weapons, do not call the melee shit.
+									var/obj/projectile/to_shoot = new(mob.loc)
+									to_shoot.bullet_owner = mob
+									to_shoot.dmg = mob.slot_0.attack_damage
+									to_shoot.ang = get_angle(mob,location)
+									world << 'shot.wav'
+									last_attack = world.time
 								return
 						if(object)
 							if(get_dist(mob,object) <= 1)

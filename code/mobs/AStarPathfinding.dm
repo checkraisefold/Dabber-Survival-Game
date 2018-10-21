@@ -19,7 +19,7 @@ mob/proc
 					animate(src, pixel_w = 0, pixel_z = 0, time = move_speed-world.tick_lag)
 					sleep(move_speed-world.tick_lag)
 			pathfinding = 0
-			return 1
+			return get_dist(src,DESTINATION <= 1)
 
 turf
 	var
