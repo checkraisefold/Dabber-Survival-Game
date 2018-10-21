@@ -411,7 +411,10 @@ client
 		if(params["right"])
 			if(current_selected_type)
 				if(istype(object,/atom) && object.z != 0)
-					focused_object = object
+					if(object:health > 0)
+						focused_object = object
+					else
+						focused_object = null
 				else
 					focused_object = null
 			else
@@ -453,8 +456,11 @@ client
 									last_attack = world.time
 	DblClick(atom/object,location,control,params)
 		if(!current_selected_type)
-			if(istype(object,/atom/movable) && object.z != 0)
-				focused_object = object
+			if(istype(object,/atom) && object.z != 0)
+				if(object:health > 0)
+					focused_object = object
+				else
+					focused_object = null
 			else
 				focused_object = null
 	MouseUp(atom/object,location,control,params)
