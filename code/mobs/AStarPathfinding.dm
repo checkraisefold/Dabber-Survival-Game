@@ -129,6 +129,7 @@ proc
 
 		while(!open.IsEmpty() && !path)
 		{
+			CHECK_TICK
 			var/PathNode/cur = open.Dequeue()
 			closed.Add(cur.source)
 
@@ -140,6 +141,7 @@ proc
 				path = new()
 				path.Add(cur.source)
 				while(cur.prevNode)
+					CHECK_TICK
 					cur = cur.prevNode
 					path.Add(cur.source)
 				break
@@ -153,11 +155,13 @@ proc
 					continue
 
 			for(var/datum/d in L)
+				CHECK_TICK
 				//Get the accumulated weight up to this point
 				var/ng = cur.g + call(cur.source,dist)(d)
 				if(d.bestF)
 					if(ng + call(d,dist)(end) < d.bestF)
 						for(var/i = 1; i <= open.L.len; i++)
+							CHECK_TICK
 							var/PathNode/n = open.L[i]
 							if(n.source == d)
 								open.Remove(i)
@@ -172,15 +176,18 @@ proc
 
 		var/PathNode/temp
 		while(!open.IsEmpty())
+			CHECK_TICK
 			temp = open.Dequeue()
 			temp.source.bestF = 0
 		while(closed.len)
+			CHECK_TICK
 			temp = closed[closed.len]
 			temp.bestF = 0
 			closed.Cut(closed.len)
 
 		if(path)
 			for(var/i = 1; i <= path.len/2; i++)
+				CHECK_TICK
 				path.Swap(i,path.len-i+1)
 
 		return path
