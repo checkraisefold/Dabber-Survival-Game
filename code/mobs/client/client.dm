@@ -423,7 +423,7 @@ client
 								var/obj/projectile/to_shoot = new(mob.loc)
 								to_shoot.owner = src
 								to_shoot.dmg = mob.slot_0.attack_damage
-								to_shoot.ang = atan2(mob,location)
+								to_shoot.ang = get_angle(mob,location)
 								return
 						if(istype(object,/mob))
 							if(get_dist(mob,object) <= 1)
