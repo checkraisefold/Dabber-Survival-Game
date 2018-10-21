@@ -4,6 +4,7 @@ proc/atan2(x, y)
 
 proc/get_angle(atom/a, atom/b)
 	return atan2(b.x - a.x, b.y - a.y)
+
 atom/movable
 	var
 		sub_step_x = 0

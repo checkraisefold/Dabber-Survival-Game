@@ -322,8 +322,8 @@ client
 			//sin(frame)*(255-31)
 			//sin(frame)*(207-21)
 			//sin(frame)*(158-91)
-			cover.color = rgb(255-(sin(frame*MULT_TIME)*(255-31)),207-(sin(frame*MULT_TIME)*(207-21)),158-(sin(frame*MULT_TIME)*(158-91)))
-			cover.alpha = 50+(sin(frame*MULT_TIME)*150)
+			cover.color = rgb(255-(sin(frame*MULT_TIME)*(255-(25/2))),207-(sin(frame*MULT_TIME)*(207-(25/2))),158-(sin(frame*MULT_TIME)*(158-(112/2))))
+			cover.alpha = 50+(sin(frame*MULT_TIME)*170)
 			first_po.alpha = first_point ? 255 : 0
 			right_click.alpha = 0 //focused_object ? 255 : 0
 			camera_x += (keys["east"]+keys["d"]-keys["west"]-keys["a"])*(6+(keys["shift"]*6))
