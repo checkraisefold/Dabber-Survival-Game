@@ -2,7 +2,7 @@ var/list/free_turfs = list()
 turf
 	icon = null
 	mouse_opacity = 2
-	var/health = 1
+	var/health = 0
 	proc/TakeDamageTurf(dmg)
 		if(istype(src,/turf/wall))
 			health -= dmg

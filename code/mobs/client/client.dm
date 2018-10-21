@@ -396,6 +396,13 @@ client
 						hud_bar_num.maptext = "<font color=#E6E6E6>Healthy"
 					screen += hud_bar_num
 					//focused_object:health -= 1
+				else
+					if(focused_object:health > 0)
+						AdjustHudBar(hud_bar_health,(focused_object:health/focused_object:maxhealth)*hud_bar_health[1])
+						screen += hud_bar_health[2]
+						screen += hud_bar_health[3]
+						hud_bar_num.maptext = "<font color=#E6E6E6>Health"
+						screen += hud_bar_num
 
 	//Mouse stuff, will port to MC later.
 	MouseDown(atom/object,location,control,params)
@@ -403,7 +410,7 @@ client
 		params=params2list(params)
 		if(params["right"])
 			if(current_selected_type)
-				if(istype(object,/atom/movable) && object.z != 0)
+				if(istype(object,/atom) && object.z != 0)
 					focused_object = object
 				else
 					focused_object = null
