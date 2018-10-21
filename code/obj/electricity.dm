@@ -24,8 +24,6 @@
 		icon_state = "0"
 		var/connected_dirs = 0
 		mouse_opacity = 2
-		RightClicked(mob/M)
-			Beat(EAST,10)
 		New()
 			..()
 			spawn(1)

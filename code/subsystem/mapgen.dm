@@ -1,8 +1,8 @@
 world/New()
 	..()
 	if(port == 0)
-		maxx = 20
-		maxy = 20
+		maxx = 30
+		maxy = 30
 	var/Noise/octave_1 = new(world.maxx, world.maxy)
 	octave_1.frequency = 4
 	octave_1.amplitude = 128
