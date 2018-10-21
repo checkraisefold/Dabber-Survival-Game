@@ -71,6 +71,9 @@
 												world << sound("sound/Eat[rand(1,3)].wav")
 												owner.vars["slot_[proj.typeW]"] = null
 									if("Transfer To Storage")
+										if(owner_of_it && owner_of_it != owner)
+											owner_of_it:client:Add_Alert("Robbery : [owner]",'RaidAlert.wav',"#FF0000")
+											owner_of_it.Update_Storage()
 										if(owner:storages.len > 0)
 											var/obj/item/current_stack = null
 											for(var/turf/floor/storage/STO in owner:storages)
@@ -137,6 +140,7 @@
 /obj/item
 	name = "Item"
 	icon = 'items.dmi'
+	health = 0
 	var
 		amount = 1
 		typeW = USABLE

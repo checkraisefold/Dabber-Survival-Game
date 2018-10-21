@@ -12,6 +12,8 @@
 		else
 			if(l)
 				l.alpha = 0
-	redlamp
-	  icon_state = "lamp_red"
-	  lamp_light_color = "#FF0000"
+	RightClicked(mob/M)
+		var/new_color = input(M,"What color") as null|color
+		if(new_color)
+			lamp_light_color = new_color
+			Apply_Light(20,lamp_light_color)

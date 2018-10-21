@@ -452,7 +452,8 @@ client
 									if(istype(object,/turf))
 										object:TakeDamageTurf(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
 									if(istype(object,/obj))
-										object:TakeDamageObj(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
+										if(object:health > 0)
+											object:TakeDamageObj(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
 									if(istype(object,/mob))
 										object:TakeDamage(5+(mob.slot_0 ? mob.slot_0.attack_damage : 0))
 									last_attack = world.time
