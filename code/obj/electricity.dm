@@ -3,7 +3,7 @@
 /obj/electricity
 	icon = 'icons/obj/electricity.dmi'
 	var/power_stored = 0 //Amount of power stored
-	var/power_max = 20 //Maximum
+	var/power_max = 40 //Maximum
 	New()
 		..()
 		electricity += src
@@ -26,7 +26,7 @@
 			for(var/d in list(NORTH,SOUTH,EAST,WEST))
 				var/obj/electricity/pipe/G = locate(/obj/electricity/pipe) in get_step(src,d)
 				if(istype(G,/obj/electricity/pipe))
-					G.Beat(d,1)
+					G.Beat(d,20)
 	pipe
 		name = "Electrical Pipe"
 		icon_state = "0"
@@ -57,6 +57,8 @@
 					//powered object
 					power = power/2
 					pow.power_stored += power
+					if(pow.power_stored > pow.power_max)
+						pow.power_stored = pow.power_max
 					power_stored -= power
 				if(istype(G,/obj/electricity/pipe))
 					G.power_stored += power
