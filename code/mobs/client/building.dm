@@ -6,8 +6,7 @@ var/list/buildable = list(
 "Door" = list(/obj/door,"wood",5,10),
 "Electricity Pipe" = list(/obj/electricity/pipe,"granite",2,7),
 "Generator" = list(/obj/electricity/generator,"granite",2,7),
-"Lamp" = list(/obj/electricity/power/lamp,"granite",5,10),
-"Red Lamp" = list(/obj/electricity/power/lamp/redlamp,"granite",5,10)
+"Lamp" = list(/obj/electricity/power/lamp,"granite",5,10)
 )
 var/list/materials = list(
 "wood",

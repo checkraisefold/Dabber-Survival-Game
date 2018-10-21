@@ -8,7 +8,7 @@ turf
 		if(istype(src,/turf/wall))
 			health -= dmg
 			world << sound("sound/galvin1.ogg")
-			if(health < 0)
+			if(health <= 0)
 				del src
 	water
 		alpha = 0
