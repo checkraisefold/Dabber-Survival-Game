@@ -419,11 +419,11 @@ client
 						if(mob.slot_0)
 							if(mob.slot_0.weapon_type == RANGED)
 								//for ranged weapons, do not call the melee shit.
-								world << "Firing"
 								var/obj/projectile/to_shoot = new(mob.loc)
 								to_shoot.bullet_owner = mob
 								to_shoot.dmg = mob.slot_0.attack_damage
 								to_shoot.ang = get_angle(mob,location)
+								world << 'shot.wav'
 								return
 						if(istype(object,/mob))
 							if(get_dist(mob,object) <= 1)

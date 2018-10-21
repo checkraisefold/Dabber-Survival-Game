@@ -1,6 +1,6 @@
 /obj/projectile
 	var/ang = 0
-	var/speed = 8
+	var/speed = 6
 	var/dmg = 0
 	var/mob/human/bullet_owner = null
 	icon = 'icons/obj/bullet.dmi'

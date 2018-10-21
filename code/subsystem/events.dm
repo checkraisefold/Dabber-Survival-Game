@@ -26,7 +26,7 @@
 	col = "#8080FF"
 	On_Trigger()
 		..()
-		for(var/i in 1 to rand(1,20))
+		for(var/i in 1 to rand(17,20))
 			var/list/random_items = list(
 			/obj/item/food/meat,
 			/obj/item/material/granite,

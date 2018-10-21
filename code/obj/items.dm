@@ -55,7 +55,10 @@
 								owner.vars["slot_[proj.typeW]"] = proj
 								switch(what_to_do)
 									if("Equip")
-										owner << "<font color='green'><b>Your attacks will deal [5+proj:attack_damage] DMG now."
+										if(proj:weapon_type == RANGED)
+											owner << "<font color='green'><b>Your ranged attacks will deal [proj:attack_damage] DMG now."
+										else
+											owner << "<font color='green'><b>Your attacks will deal [5+proj:attack_damage] DMG now."
 										owner << 'beep.wav'
 										if(proj.amount > 1)
 											var/obj/item/tp = new proj.type(init_loc)

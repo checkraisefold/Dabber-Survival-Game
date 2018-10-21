@@ -27,4 +27,6 @@ atom/movable
 
 			if(whole_x || whole_y)
 				step_size = max(abs(whole_x), abs(whole_y))
-				Move(loc, dir, step_x + whole_x, step_y + whole_y)
+				return Move(loc, dir, step_x + whole_x, step_y + whole_y)
+			else
+				return 1
