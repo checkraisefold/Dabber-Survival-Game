@@ -398,7 +398,7 @@ client
 					//focused_object:health -= 1
 				else
 					if(focused_object:health > 0)
-						AdjustHudBar(hud_bar_health,(focused_object:health/focused_object:maxhealth)*hud_bar_health[1])
+						AdjustHudBar(hud_bar_health,(focused_object:health/initial(focused_object:health))*hud_bar_health[1])
 						screen += hud_bar_health[2]
 						screen += hud_bar_health[3]
 						hud_bar_num.maptext = "<font color=#E6E6E6>Health"

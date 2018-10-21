@@ -2,6 +2,7 @@ var/list/free_turfs = list()
 turf
 	icon = null
 	mouse_opacity = 2
+	desc = "A turf."
 	var/health = 0
 	proc/TakeDamageTurf(dmg)
 		if(istype(src,/turf/wall))
@@ -48,6 +49,7 @@ turf
 	wall
 		density = 1
 		layer = 2.5
+		desc = "Keeps the idiots out."
 		proc/auto_smooth(var/t = "")
 			var/bit = 0
 			for(var/d in list(NORTH,SOUTH,EAST,WEST))
