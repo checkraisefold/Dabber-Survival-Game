@@ -47,7 +47,6 @@ var/datum/controller/GameScheduler/Scheduler = null
 							var/datum/game_event/event_to_do = scheduled_events[a][1] //schedule the next event
 							if(scheduled_events[a][1]:DoEvent())
 								scheduled_events[a] -= event_to_do
-								del event_to_do
 								A.can_event = 1
 							else
 								A.can_event = 1 //Failed to start event.
